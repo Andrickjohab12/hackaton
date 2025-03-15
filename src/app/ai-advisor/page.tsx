@@ -1,8 +1,7 @@
 "use client"
 
 import type React from "react"
-import Link from "next/link"
-import {  Sparkles } from "lucide-react"
+
 import { useState } from "react"
 import {
   Send,
@@ -199,34 +198,9 @@ export default function AIAdvisorPage() {
   }
 
   return (
-    
     <div className="container mx-auto py-12 px-4 md:px-6">
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b">
-        <Link className="flex items-center justify-center" href="/">
-          <Sparkles className="h-6 w-6 text-purple-600" />
-          <span className="ml-2 text-xl font-bold">FinanceAI</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
-            Home
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/ai-advisor">
-            AI Advisor
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/history">
-            History
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/about">
-            About Us
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/contact">
-            Contact
-          </Link>
-        </nav>
-      </header>
       <div className="max-w-6xl mx-auto">
-      
-        <h1 className="text-3xl font-bold mb-6">Student Financee Advisor</h1>
+        <h1 className="text-3xl font-bold mb-6">Student Finance Advisor</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
