@@ -79,7 +79,7 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Personalized Financial Advice Powered by AI
+                  Personalized Financial Advice Powered by montes
                 </h1>
                 <p className="max-w-[600px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Optimize your financial decisions with our AI-powered platform. Get personalized recommendations
