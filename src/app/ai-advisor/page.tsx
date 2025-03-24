@@ -56,13 +56,13 @@ export default function AIAdvisorPage() {
 
   // Student expense categories
   const [expenses, setExpenses] = useState<Expense[]>([
-    { category: "Colegiatura", amount: 0, icon: <BookOpen className="h-5 w-5" />, color: "bg-purple-600" },
-    { category: "Renta", amount: 0, icon: <Home className="h-5 w-5" />, color: "bg-blue-500" },
-    { category: "Comida", amount: 0, icon: <Utensils className="h-5 w-5" />, color: "bg-green-500" },
-    { category: "Libros y Materiales Escolares", amount: 0, icon: <BookOpen className="h-5 w-5" />, color: "bg-yellow-500" },
-    { category: "Transporte", amount: 0, icon: <TrendingUp className="h-5 w-5" />, color: "bg-red-500" },
-    { category: "Entretenimiento", amount: 0, icon: <Gamepad className="h-5 w-5" />, color: "bg-indigo-500" },
-    { category: "Café y comer fuera", amount: 0, icon: <Coffee className="h-5 w-5" />, color: "bg-orange-500" },
+    { category: "colegiatura", amount: 0, icon: <BookOpen className="h-5 w-5" />, color: "bg-purple-600" },
+    { category: "renta", amount: 0, icon: <Home className="h-5 w-5" />, color: "bg-blue-500" },
+    { category: "comida", amount: 0, icon: <Utensils className="h-5 w-5" />, color: "bg-green-500" },
+    { category: "libros", amount: 0, icon: <BookOpen className="h-5 w-5" />, color: "bg-yellow-500" },
+    { category: "transporte", amount: 0, icon: <TrendingUp className="h-5 w-5" />, color: "bg-red-500" },
+    { category: "entretenimiento", amount: 0, icon: <Gamepad className="h-5 w-5" />, color: "bg-indigo-500" },
+    { category: "cafe", amount: 0, icon: <Coffee className="h-5 w-5" />, color: "bg-orange-500" },
   ])
 
   const [analysisComplete, setAnalysisComplete] = useState(false)
@@ -90,16 +90,16 @@ export default function AIAdvisorPage() {
       // If user mentions expenses, suggest the expense Analizarr
       if (
         input.toLowerCase().includes("expense") ||
-        input.toLowerCase().includes("spending") ||
-        input.toLowerCase().includes("Presupuesto") ||
-        input.toLowerCase().includes("Analizar") ||
-        input.toLowerCase().includes("Ayuda")
+        input.toLowerCase().includes("gastos") ||
+        input.toLowerCase().includes("presupuesto") ||
+        input.toLowerCase().includes("analizar") ||
+        input.toLowerCase().includes("ayuda")
       ) {
         setTimeout(() => {
           const followUpResponse: Message = {
             role: "asistente",
             content:
-              "¿Le gustaría utilizar nuestra herramienta Analizarr de gastos para obtener un desglose detallado de sus gastos? Esto me ayudará a proporcionar un asesoramiento más personalizado.",
+              "¿Le gustaría utilizar nuestra herramienta para analziar gastos y obtener un desglose detallado de sus gastos? Esto me ayudará a proporcionar un asesoramiento más personalizado.",
           }
           setMessages((prev) => [...prev, followUpResponse])
           setShowExpenseAnalizarr(true)
@@ -112,22 +112,22 @@ export default function AIAdvisorPage() {
   const getAIResponse = (query: string): string => {
     const lowerQuery = query.toLowerCase()
 
-    if (lowerQuery.includes("Gastos") || lowerQuery.includes("Gasto") || lowerQuery.includes("Presupuesto")) {
+    if (lowerQuery.includes("gastos") || lowerQuery.includes("gasto") || lowerQuery.includes("presupuesto")) {
       return "Como estudiante, el seguimiento de sus gastos es crucial. Los mayores gastos para la mayoría de los estudiantes suelen ser Renta, matrícula y Comida. ¿Qué área te preocupa más?"
-    } else if (lowerQuery.includes("Colegiatura") || lowerQuery.includes("tarifas")) {
+    } else if (lowerQuery.includes("colegiatura") || lowerQuery.includes("tarifas")) {
       return "La colegiatura puede ser un gasto importante. ¿Ha investigado becas, subvenciones o programas de trabajo y estudio? Muchas universidades también ofrecen planes de pago que pueden ayudar a distribuir el costo."
-    } else if (lowerQuery.includes("Renta") || lowerQuery.includes("rentas") || lowerQuery.includes("dormitorio")) {
+    } else if (lowerQuery.includes("renta") || lowerQuery.includes("rentas") || lowerQuery.includes("casa")) {
       return "Renta es a menudo el mayor gasto después de la matrícula. Considere hacer que los compañeros de cuarto dividan los costos, busque Renta más lejos del campus (si Transporte es asequible) o se convierta en un asistente residente (RA) para Renta reducido o gratis."
-    } else if (lowerQuery.includes("Comida") || lowerQuery.includes("supermercado") || lowerQuery.includes("lonche")) {
+    } else if (lowerQuery.includes("comida") || lowerQuery.includes("supermercado") || lowerQuery.includes("lonche")) {
       return "Los costos de Comida pueden sumar rápidamente. Considere la preparación de comidas, el uso eficiente de los planes de comidas de los estudiantes y la limitación de comer fuera. ¡Muchas tiendas de comestibles y restaurantes también ofrecen descuentos para estudiantes!"
     } else if (lowerQuery.includes("libros") || lowerQuery.includes("materiales")) {
       return "¡Los libros de texto pueden ser caros! Busque alquilar libros, comprar copias usadas o verificar si su biblioteca las tiene. Las versiones digitales son a menudo más baratas, y algunos profesores pueden tener ediciones más antiguas que funcionan igual de bien."
-    } else if (lowerQuery.includes("Ahorrar") || lowerQuery.includes("Ahorros")) {
+    } else if (lowerQuery.includes("ahorrar") || lowerQuery.includes("ahorros")) {
       return "¡Gran pregunta! Como estudiante, puede ahorrar utilizando descuentos para estudiantes, comprando libros de texto usados, preparando comidas, encontrando Renta asequible con compañeros de cuarto y utilizando recursos del campus como el gimnasio y los eventos en lugar de pagar Entretenimiento."
-    } else if (lowerQuery.includes("Trabajo") || lowerQuery.includes("Empleo") || lowerQuery.includes("ingresos")) {
+    } else if (lowerQuery.includes("trabajo") || lowerQuery.includes("empleo") || lowerQuery.includes("ingresos")) {
       return "Trabajar a tiempo parcial durante la escuela puede ayudar con los gastos. Busque trabajos en el campus que puedan ser más flexibles con su horario de clases. También considere las pasantías en su campo que proporcionan ingresos y experiencia valiosa."
-    } else if (lowerQuery.includes("préstamo") || lowerQuery.includes("deuda")) {
-      return "Los préstamos estudiantiles deben usarse con cuidado. Siempre agote las becas, subvenciones y opciones de trabajo primero. Si necesita préstamos, los préstamos federales generalmente tienen mejores términos que los privados. Y recuerde, no tiene que aceptar la cantidad total ofrecida."
+    } else if (lowerQuery.includes("prestamo") || lowerQuery.includes("deuda")) {
+      return "Los prestamos estudiantiles deben usarse con cuidado. Siempre agote las becas, subvenciones y opciones de trabajo primero. Si necesita préstamos, los préstamos federales generalmente tienen mejores términos que los privados. Y recuerde, no tiene que aceptar la cantidad total ofrecida."
     } else if (lowerQuery.includes("Hola") || lowerQuery.includes("Me gustaria") || lowerQuery.includes("Tengo una Pregunta")) {
       return "¡Hola! Soy tu asesor de finanzas estudiantiles. Puedo ayudarle a administrar sus gastos, encontrar formas de ahorrar dinero y aprovechar al máximo su presupuesto estudiantil. ¿Con qué te gustaría Ayuda hoy?"
     } else if (lowerQuery.includes("Gracias")) {
