@@ -145,7 +145,7 @@ export default function HistoryPage() {
                     <p className="text-gray-700 mt-4">
                       <strong>Teléfono:</strong> +52 664 2229834
                       <br />
-                      <strong>Email:</strong> Finmateai@gmail.com
+                      <strong>Email:</strong> l
                     </p>
                   </div>
                   
