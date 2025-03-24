@@ -13,7 +13,7 @@ export default function HistoryPage() {
         <header className="px-4 lg:px-6 h-16 flex items-center border-b">
         <Link className="flex items-center justify-center" href="/">
           <Sparkles className="h-6 w-6 text-purple-600" />
-          <span className="ml-2 text-xl font-bold">FinanceAI</span>
+          <span className="ml-2 text-xl font-bold">FinMateAI</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -22,16 +22,16 @@ export default function HistoryPage() {
             Home
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/ai-advisor">
-            AI Advisor
+            Asesor de IA
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/history">
-            History
+            Historia
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/about">
-            About Us
+            Acerca de Nosotros
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/contact">
-            Contact
+            Contacto
           </Link>
         </nav>
 
@@ -48,7 +48,7 @@ export default function HistoryPage() {
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link className="flex items-center" href="/">
                     <Sparkles className="h-6 w-6 text-purple-600" />
-                    <span className="ml-2 text-xl font-bold">FinanceAI</span>
+                    <span className="ml-2 text-xl font-bold">FinMateAI</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
@@ -56,16 +56,16 @@ export default function HistoryPage() {
                     Home
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/ai-advisor">
-                    AI Advisor
+                  Asesor de IA
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/history">
-                    History
+                    Historia
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/about">
-                    About Us
+                    Acerca de Nosotros
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/contact">
-                    Contact
+                    Contacto
                   </Link>
                 </nav>
                 <div className="mt-auto pt-4 border-t">
@@ -77,26 +77,25 @@ export default function HistoryPage() {
         </div>
       </header>
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Our History</h1>
+        <h1 className="text-3xl font-bold mb-6">Nuestra Historia</h1>
 
         <div className="space-y-12">
           <section>
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <Target className="mr-2 h-6 w-6 text-purple-600" />
-              Our Mission
+              Nuestra Misión
             </h2>
             <Card>
               <CardContent className="pt-6">
                 <p className="text-gray-700 leading-relaxed">
-                  At FinanceAI, our mission is to democratize financial advice through innovative technology. We believe
-                  that everyone deserves access to high-quality financial guidance, regardless of their wealth or
-                  background. By leveraging artificial intelligence, we're able to provide personalized financial
-                  recommendations at scale, helping individuals and businesses make smarter financial decisions.
+                Nuestra empresa tiene como propósito ayudar a las personas a mejorar su administración
+                 financiera personal mediante inteligencia artificial, ofreciendo una solución intuitiva
+                  y personalizada. 
                 </p>
                 <p className="text-gray-700 leading-relaxed mt-4">
-                  We're committed to transparency, security, and putting our clients' interests first. Our AI-powered
-                  platform is designed to analyze complex financial data and translate it into actionable insights that
-                  are easy to understand and implement.
+                Brindamos herramientas digitales accesibles y seguras para gestionar 
+                  ingresos, gastos y ahorros, con recomendaciones automatizadas y estrategias financieras
+                   adaptadas a cada usuario.
                 </p>
               </CardContent>
             </Card>
@@ -105,19 +104,19 @@ export default function HistoryPage() {
           <section>
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <Compass className="mr-2 h-6 w-6 text-purple-600" />
-              Our Vision
+              Nuestra visión
             </h2>
             <Card>
               <CardContent className="pt-6">
                 <p className="text-gray-700 leading-relaxed">
-                  We envision a future where financial well-being is accessible to all. Our vision is to become the
-                  world's most trusted AI financial advisor, helping millions of people achieve their financial goals
-                  and build a secure future.
+                Aspiramos a ser un referente en tecnología financiera en Latinoamérica, 
+                expandiéndonos a nivel global y estableciendo alianzas con instituciones 
+                financieras para fomentar la inclusión y educación financiera. 
                 </p>
                 <p className="text-gray-700 leading-relaxed mt-4">
-                  By 2030, we aim to have helped over 10 million individuals and businesses optimize their finances,
-                  save more effectively, and invest wisely. We're working toward a world where financial stress is
-                  reduced and people can focus on what truly matters in their lives.
+                Queremos ser reconocidos por la transparencia, innovación, accesibilidad 
+                y responsabilidad financiera, proporcionando una mejor calidad de vida
+                 a nuestros clientes a través de decisiones económicas informadas y efectivas.
                 </p>
               </CardContent>
             </Card>
@@ -126,106 +125,89 @@ export default function HistoryPage() {
           <section>
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <MapPin className="mr-2 h-6 w-6 text-purple-600" />
-              Our Location
+           Nuestra Ubicación
             </h2>
             <Card>
               <CardContent className="pt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Headquarters</h3>
+                    <h3 className="text-lg font-semibold mb-2">Sede</h3>
                     <p className="text-gray-700">
-                      123 Financial District
+                    Blvd. Gustavo Díaz Ordaz 12649-2G  
+
                       <br />
-                      Suite 500
+                       segundo piso
                       <br />
-                      New York, NY 10004
+                      El Paraiso
                       <br />
-                      United States
+                      22106 Tijuana, B.C.
                     </p>
                     <p className="text-gray-700 mt-4">
-                      <strong>Phone:</strong> +1 (555) 123-4567
+                      <strong>Teléfono:</strong> +52 664 2229834
                       <br />
-                      <strong>Email:</strong> info@financeai.com
+                      <strong>Email:</strong> Finmateai@gmail.com
                     </p>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Regional Offices</h3>
-                    <p className="text-gray-700">
-                      <strong>San Francisco</strong>
-                      <br />
-                      555 Tech Avenue
-                      <br />
-                      San Francisco, CA 94103
-                    </p>
-                    <p className="text-gray-700 mt-4">
-                      <strong>London</strong>
-                      <br />
-                      10 Fintech Square
-                      <br />
-                      London, EC2A 4XY
-                      <br />
-                      United Kingdom
-                    </p>
-                  </div>
+                  
                 </div>
                 <div className="mt-6 rounded-lg overflow-hidden border h-[300px] bg-gray-100 flex items-center justify-center">
-                  <p className="text-gray-500">Interactive map would be displayed here</p>
+                  <p className="text-gray-500">Mapa interactivo</p>
                 </div>
               </CardContent>
             </Card>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold mb-4">Our Journey</h2>
+            <h2 className="text-2xl font-bold mb-4">Nuestro Viaje</h2>
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>2018</CardTitle>
-                  <CardDescription>The Beginning</CardDescription>
+                  <CardTitle>15-01-2025</CardTitle>
+                  <CardDescription>El Inicio</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700">
-                    Founded by a team of financial experts and AI engineers with a vision to transform financial advice
-                    through technology.
+                  Fundada por un equipo de Estudiantes universitarios con la visión de transformar el asesoramiento financiero
+                  a través de la tecnología.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>2020</CardTitle>
-                  <CardDescription>Growth & Innovation</CardDescription>
+                  <CardTitle>20-02-2025</CardTitle>
+                  <CardDescription>Crecimiento e Innovación</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700">
-                    Launched our first AI-powered financial advisory platform and secured Series A funding to accelerate
-                    development and expansion.
+                  Lanzamos nuestra primera plataforma de asesoramiento financiero impulsada por IA y obtuvimos fondos de la Serie A para acelerar
+                  desarrollo y expansión.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>2022</CardTitle>
-                  <CardDescription>Enterprise Solutions</CardDescription>
+                  <CardTitle>28-02-2025</CardTitle>
+                  <CardDescription>Soluciones Empresariales</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700">
-                    Expanded our services to include enterprise solutions, helping businesses optimize their financial
-                    operations and provide better financial benefits to employees.
+                  Ampliamos nuestros servicios para incluir soluciones empresariales, ayudando a las empresas a optimizar sus finanzas
+                  operaciones y proporcionar mejores beneficios financieros a los empleados.
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Today</CardTitle>
-                  <CardDescription>Global Impact</CardDescription>
+                  <CardTitle>Hoy</CardTitle>
+                  <CardDescription>Impacto</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700">
-                    Serving clients across 30+ countries with state-of-the-art AI financial advisory services,
-                    continuously innovating to improve financial outcomes for individuals and businesses.
+                  Sirviendo a clientes  con servicios de asesoramiento financiero de IA de última generación
+                  innovando continuamente para mejorar los resultados financieros para individuos y empresas.
                   </p>
                 </CardContent>
               </Card>

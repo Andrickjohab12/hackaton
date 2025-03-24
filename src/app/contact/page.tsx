@@ -31,7 +31,7 @@ export default function ContactPage() {
       <header className="px-4 lg:px-6 h-16 flex items-center border-b">
         <Link className="flex items-center justify-center" href="/">
           <Sparkles className="h-6 w-6 text-purple-600" />
-          <span className="ml-2 text-xl font-bold">FinanceAI</span>
+          <span className="ml-2 text-xl font-bold">FinMateAI</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -40,16 +40,16 @@ export default function ContactPage() {
             Home
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/ai-advisor">
-            AI Advisor
+          Asesor de IA
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/history">
-            History
+            Historia
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/about">
-            About Us
+            Acerca de Nosotros
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/contact">
-            Contact
+            Contacto
           </Link>
         </nav>
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link className="flex items-center" href="/">
                     <Sparkles className="h-6 w-6 text-purple-600" />
-                    <span className="ml-2 text-xl font-bold">FinanceAI</span>
+                    <span className="ml-2 text-xl font-bold">FinMateAI</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
@@ -74,20 +74,20 @@ export default function ContactPage() {
                     Home
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/ai-advisor">
-                    AI Advisor
+                  Asesor de IA
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/history">
-                    History
+                    Historia
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/about">
-                    About Us
+                    Acerca de Nosotros
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/contact">
-                    Contact
+                    Contacto
                   </Link>
                 </nav>
                 <div className="mt-auto pt-4 border-t">
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700">Get Started</Button>
+                  <Button className="w-full bg-purple-600 hover:bg-purple-700">Empezar</Button>
                 </div>
               </div>
             </SheetContent>
@@ -95,60 +95,60 @@ export default function ContactPage() {
         </div>
       </header>
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
+        <h1 className="text-3xl font-bold mb-6">Contáctenos</h1>
         <p className="text-gray-500 mb-8">
-          We're here to help enterprise clients with their financial needs. Fill out the form below and our team will
-          get back to you shortly.
+        Estamos aquí para ayudar a los clientes empresariales con sus necesidades financieras. Rellene el siguiente formulario y nuestro equipo lo hará
+        vuelve a ti en breve.
         </p>
 
         <Card className="border-purple-200">
           <CardHeader className="bg-gradient-to-r from-purple-900 to-black text-white">
-            <CardTitle>Enterprise Inquiry</CardTitle>
+            <CardTitle>Investigación Empresarial</CardTitle>
             <CardDescription className="text-gray-200">
-              Submit your business inquiry and we'll respond within 24 hours
+            Envíe su consulta comercial y le responderemos dentro de las 24 horas
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-6">
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <CheckCircle2 className="h-16 w-16 text-green-500 mb-4" />
-                <h3 className="text-xl font-bold">Thank you for your inquiry!</h3>
+                <h3 className="text-xl font-bold">¡Gracias por su consulta!</h3>
                 <p className="text-gray-500 mt-2">
-                  We've received your message and will get back to you within 24 hours.
+                Hemos recibido su mensaje y nos pondremos en contacto con usted dentro de las 24 horas.
                 </p>
                 <Button className="mt-6 bg-purple-600 hover:bg-purple-700" onClick={() => setSubmitted(false)}>
-                  Submit Another Inquiry
+                Enviar Otra Consulta
                 </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="company">Company Name</Label>
-                    <Input id="company" placeholder="Your company name" required />
+                    <Label htmlFor="company">Nombre de la Empresa</Label>
+                    <Input id="company" placeholder="Nombre de la empresa" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="contact">Contact Person</Label>
-                    <Input id="contact" placeholder="Full name" required />
+                    <Label htmlFor="contact">Persona de Contacto</Label>
+                    <Input id="contact" placeholder="Nombre Completo" required />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email">Dirección de Correo Electrónico</Label>
                     <Input id="email" type="email" placeholder="email@company.com" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" required />
+                    <Label htmlFor="phone">Número de Teléfono</Label>
+                    <Input id="phone" type="tel" placeholder="+52 (664) 222-9834" required />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">Mensaje</Label>
                   <Textarea
                     id="message"
-                    placeholder="Please describe your inquiry in detail..."
+                    placeholder="Por favor describa su consulta en detalle..."
                     className="min-h-[150px]"
                     required
                   />
@@ -157,12 +157,12 @@ export default function ContactPage() {
                 <div className="flex items-center space-x-2">
                   <input type="checkbox" id="privacy" className="rounded border-gray-300" required />
                   <label htmlFor="privacy" className="text-sm text-gray-500">
-                    I agree to the processing of my data according to the privacy policy
+                  Acepto el procesamiento de mis datos de acuerdo con la política de privacidad
                   </label>
                 </div>
 
                 <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
-                  Submit Inquiry
+                Enviar Consulta
                 </Button>
               </form>
             )}
