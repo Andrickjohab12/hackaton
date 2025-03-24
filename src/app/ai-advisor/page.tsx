@@ -163,7 +163,7 @@ export default function AIAdvisorPage() {
       // Add analysis message
       const analysisMessage: Message = {
         role: "asistente",
-        content: `Según su desglose de gastos, he Analizado sus patrones de gastos. ${
+        content: `Según su desglose de gastos, he analizado sus patrones de gastos. ${
           HolagHolampact.length > 0
             ? `Sus gastos de impacto más altos están en ${HolagHolampact.join(", ")}. Centrémonos en estas áreas para marcar la mayor diferencia en su Presupuesto.`
             : "Sus gastos parecen bastante equilibrados en todas las categorías."
