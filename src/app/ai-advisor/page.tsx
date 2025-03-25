@@ -113,7 +113,7 @@ export default function AIAdvisorPage() {
     const lowerQuery = query.toLowerCase()
 
     if (lowerQuery.includes("gastos") || lowerQuery.includes("gasto") || lowerQuery.includes("presupuesto")) {
-      return "Como estudiante, el seguimiento de sus gastos es crucial. Los mayores gastos para la mayoría de los estudiantes suelen ser Renta, matrícula y Comida. ¿Qué área te preocupa más?"
+      return "Como estudiante, el seguimiento de sus gastos es crucial. Los mayores gastos para la mayoría de los estudiantes suelen ser Renta, matrícula y comida. ¿Qué área te preocupa más?"
     } else if (lowerQuery.includes("colegiatura") || lowerQuery.includes("tarifas")) {
       return "La colegiatura puede ser un gasto importante. ¿Ha investigado becas, subvenciones o programas de trabajo y estudio? Muchas universidades también ofrecen planes de pago que pueden ayudar a distribuir el costo."
     } else if (lowerQuery.includes("renta") || lowerQuery.includes("rentas") || lowerQuery.includes("casa")) {
@@ -133,7 +133,7 @@ export default function AIAdvisorPage() {
     } else if (lowerQuery.includes("Gracias")) {
       return "¡De nada! Estoy aquí para Ayuda con cualquier otra pregunta financiera que pueda tener. ¡Buena suerte con tus estudios!"
     } else {
-      return "Como estudiante, administrar sus finanzas de manera efectiva es importante. Puedo Ayudar con Presupuestoing, encontrar formas de ahorrar en gastos comunes como libros de texto y Comida, o maximizar los descuentos para estudiantes. ¿En qué área específica le gustaría asesoramiento?"
+      return "Como estudiante, administrar sus finanzas de manera efectiva es importante. Puedo ayudarte con más precisión si inicias sesion, y así podré encontrar formas de ahorrar en gastos comunes como libros de texto y comida, o maximizar los descuentos para estudiantes. ¿En qué área específica le gustaría asesoramiento?"
     }
   }
 
