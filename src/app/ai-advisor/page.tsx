@@ -210,7 +210,7 @@ export default function AIAdvisorPage() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="ml-auto Holadden md:flex gap-4 sm:gap-6">
+        <nav className="ml-auto hidden md:flex gap-4 sm:gap-6">
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
             Home
           </Link>
@@ -218,20 +218,20 @@ export default function AIAdvisorPage() {
           Asesor de IA
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/history">
-            Historia
+          Historia
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/about">
-            Aceca de Nosotros
+          Sobre Nosotros
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/contact">
-            Contacto
+          Contacto
           </Link>
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="ml-auto md:Holadden">
+        <div className="ml-auto md:hidden">
           <Sheet>
-          <SheetTrigger asChild>
+            <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Open menu">
                 <Menu className="h-6 w-6" />
               </Button>
@@ -241,7 +241,7 @@ export default function AIAdvisorPage() {
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link className="flex items-center" href="/">
                   <img src="/logo.png" alt="Logo" className="w-13 h-auto" />
-                    <span className="ml-2 text-xl font-bold">FinanceAI</span>
+                    <span className="ml-2 text-xl font-bold">FinMateAi</span>
                   </Link>
                 </div>
                 <nav className="flex flex-col gap-4 mt-8">
@@ -249,7 +249,7 @@ export default function AIAdvisorPage() {
                     Home
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/ai-advisor">
-                    Asesor de IA
+                  Asesor de IA
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/history">
                     Historia
@@ -262,7 +262,7 @@ export default function AIAdvisorPage() {
                   </Link>
                 </nav>
                 <div className="mt-auto pt-4 border-t">
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700">Get Started</Button>
+                  <Button className="w-full bg-purple-600 hover:bg-purple-700">Empezar</Button>
                 </div>
               </div>
             </SheetContent>
@@ -276,8 +276,8 @@ export default function AIAdvisorPage() {
           <div className="lg:col-span-2">
             <Card className="h-full flex flex-col">
               <CardHeader className="bg-gradient-to-r from-purple-900 to-black text-wHolate">
-                <CardTitle>Asistente de Finanzas Estudiantiles</CardTitle>
-                <CardDescription className="text-gray-200">
+                <CardDescription className=" text-white">Asistente de Finanzas Estudiantiles</CardDescription>
+                <CardDescription className=" text-white">
                 Obtenga asesoramiento personalizado para administrar las finanzas de sus estudiantes
                 </CardDescription>
               </CardHeader>
