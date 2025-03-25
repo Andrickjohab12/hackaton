@@ -97,15 +97,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="flex justify-center">
-                <img
-                  alt="Financial Dashboard"
-                  className="rounded-lg object-cover"
-                  height="400"
-                  src="/Homeguy.png"
-                  width="600"
-                />
-              </div>
+             
             </div>
           </div>
         </section>
@@ -159,10 +151,10 @@ export default function Home() {
             <div className="max-w-4xl mx-auto">
               {/* Video Player */}
               <div className="rounded-xl overflow-hidden shadow-xl border border-purple-100">
-                <video className="w-full aspect-video" controls poster="/placeholder.svg?height=720&width=1280">
-                  <source src="#" type="video/mp4" />
-                  Su navegador no admite la etiqueta de video.
-                </video>
+              <video className="w-full aspect-video" controls poster="">
+              <source src="/Video.mp4" type="video/mp4" />
+              Tu navegador no admite la etiqueta de video.
+            </video>
               </div>
 
               {/* Video Description */}
@@ -196,10 +188,10 @@ export default function Home() {
 
                     {/* Audio Player */}
                     <div className="bg-purple-800/30 p-4 rounded-lg">
-                      <audio className="w-full" controls>
-                        <source src="#" type="audio/mpeg" />
-                        Your browser does not support the audio element.
-                      </audio>
+                    <audio className="w-full" controls>
+  <source src="/Sponsor.MP3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
                     </div>
                   </div>
                 </div>
