@@ -102,7 +102,7 @@ export default function Home() {
                   alt="Financial Dashboard"
                   className="rounded-lg object-cover"
                   height="400"
-                  src="/Homeguy.jpg"
+                  src="/Homeguy.png"
                   width="600"
                 />
               </div>
