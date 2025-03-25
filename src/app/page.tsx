@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-16 flex items-center border-b">
         <Link className="flex items-center justify-center" href="/">
-          <Sparkles className="h-6 w-6 text-purple-600" />
+        <img src="/logo.png" alt="Logo" className="w-13 h-auto" />
           <span className="ml-2 text-xl font-bold">FinMateAI</span>
         </Link>
 
@@ -44,7 +44,7 @@ export default function Home() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link className="flex items-center" href="/">
-                    <Sparkles className="h-6 w-6 text-purple-600" />
+                  <img src="/logo.png" alt="Logo" className="w-13 h-auto" />
                     <span className="ml-2 text-xl font-bold">FinMateAI</span>
                   </Link>
                 </div>
@@ -177,7 +177,7 @@ export default function Home() {
                 <div className="flex flex-col md:flex-row items-center gap-6">
                   <div className="md:w-1/3">
                     <div className="bg-purple-800/50 p-4 rounded-full w-32 h-32 flex items-center justify-center mx-auto">
-                      <Sparkles className="h-16 w-16" />
+                    <img src="/logo.png" alt="Logo" className="w-20 h-auto" />
                     </div>
                   </div>
                   <div className="md:w-2/3">

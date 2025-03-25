@@ -205,7 +205,7 @@ export default function AIAdvisorPage() {
     <div className="container mx-auto py-12 px-4 md:px-6">
       <header className="px-4 lg:px-6 h-16 flex items-center border-b">
         <Link className="flex items-center justify-center" href="/">
-          <Sparkles className="h-6 w-6 text-purple-600" />
+        <img src="/logo.png" alt="Logo" className="w-13 h-auto" />
           <span className="ml-2 text-xl font-bold">FinMateAI</span>
         </Link>
 
@@ -240,7 +240,7 @@ export default function AIAdvisorPage() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-4">
                   <Link className="flex items-center" href="/">
-                    <Sparkles className="h-6 w-6 text-purple-600" />
+                  <img src="/logo.png" alt="Logo" className="w-13 h-auto" />
                     <span className="ml-2 text-xl font-bold">FinanceAI</span>
                   </Link>
                 </div>
@@ -251,7 +251,7 @@ export default function AIAdvisorPage() {
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/ai-advisor">
                     Asesor de IA
                   </Link>
-                  <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/Holastory">
+                  <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/history">
                     Historia
                   </Link>
                   <Link className="text-lg font-medium hover:text-purple-600 transition-colors" href="/about">
