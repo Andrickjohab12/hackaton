@@ -99,7 +99,7 @@ export default function AboutPage() {
                   <div className="flex justify-center">
                     <div className="relative w-full h-[300px] rounded-lg overflow-hidden">
                       <img
-                        src="/placeholder.svg?height=300&width=400"
+                        src="/about.png"
                         alt="FinanceAI Team"
                         className="object-cover"
                         style={{ width: "100%", height: "100%" }}
@@ -186,7 +186,7 @@ export default function AboutPage() {
               {[
                 {
                   name: "Andrick Sandoval",
-                  title: "Programador Backend",
+                  title: "Programador Backend,Frontend ",
                   bio: "-",
                 },
                 {
@@ -210,22 +210,22 @@ export default function AboutPage() {
                   bio: "-",
                 },
                 {
-                  name: "Michell Aguero",
+                  name: "Michel Aguero",
                   title: "Finanzas",
                   bio: "-.",
                 },
                 {
-                  name: "Ángel",
+                  name: "Angel Gallardo",
                   title: "Marketing y Publicidad",
                   bio: "-.",
                 },
                 {
-                  name: "Isis",
+                  name: "Isis Echeverría",
                   title: "Marketing y Publicidad",
                   bio: "-.",
                 },
                 {
-                  name: "Tomas de Santiago",
+                  name: "Tomas De Santiago",
                   title: "Recursos humanos",
                   bio: "-.",
                 },

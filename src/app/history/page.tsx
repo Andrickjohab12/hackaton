@@ -128,32 +128,40 @@ export default function HistoryPage() {
            Nuestra Ubicación
             </h2>
             <Card>
-              <CardContent className="pt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Sede</h3>
-                    <p className="text-gray-700">
-                    Blvd. Gustavo Díaz Ordaz 12649-2G  
+            <CardContent className="pt-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <h3 className="text-lg font-semibold mb-2">Sede</h3>
+      <p className="text-gray-700">
+        Blvd. Gustavo Díaz Ordaz 12649-2G  
+        <br />
+        Segundo piso
+        <br />
+        El Paraiso
+        <br />
+        22106 Tijuana, B.C.
+      </p>
+      <p className="text-gray-700 mt-4">
+        <strong>Teléfono:</strong> +52 664 2229834
+        <br />
+        <strong>Email:</strong> Finmateai@gmail.com
+      </p>
+    </div>
+  </div>
 
-                      <br />
-                       segundo piso
-                      <br />
-                      El Paraiso
-                      <br />
-                      22106 Tijuana, B.C.
-                    </p>
-                    <p className="text-gray-700 mt-4">
-                      <strong>Teléfono:</strong> +52 664 2229834
-                      <br />
-                      <strong>Email:</strong> l
-                    </p>
-                  </div>
-                  
-                </div>
-                <div className="mt-6 rounded-lg overflow-hidden border h-[300px] bg-gray-100 flex items-center justify-center">
-                  <p className="text-gray-500">Mapa interactivo</p>
-                </div>
-              </CardContent>
+  {/* Mapa Interactivo */}
+  <div className="mt-6 rounded-lg overflow-hidden border h-[300px] bg-gray-100 flex items-center justify-center">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.9204745023365!2d-117.0245643!3d32.5081941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d94eaafaa7662f%3A0xc95d69f2d565be9b!2sBlvd.%20Gustavo%20Diaz%20Ordaz%2012649%2C%20El%20Para%C3%ADso%2C%2022106%20Tijuana%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1711319053853!5m2!1ses-419!2smx"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen={true}
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</CardContent>
             </Card>
           </section>
 

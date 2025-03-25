@@ -97,15 +97,14 @@ export default function ContactPage() {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">Contáctenos</h1>
         <p className="text-gray-500 mb-8">
-        Estamos aquí para ayudar a los clientes empresariales con sus necesidades financieras. Rellene el siguiente formulario y nuestro equipo lo hará
-        vuelve a ti en breve.
+        Estamos aquí para ayudar a los estudiantes con sus necesidades financieras. Rellene el siguiente formulario si tienes algun mensaje equipo.
         </p>
 
         <Card className="border-purple-200">
           <CardHeader className="bg-gradient-to-r from-purple-900 to-black text-white">
-            <CardTitle>Investigación Empresarial</CardTitle>
+            <CardTitle>Formulario</CardTitle>
             <CardDescription className="text-gray-200">
-            Envíe su consulta comercial y le responderemos dentro de las 24 horas
+            Envíe su consulta  y le responderemos dentro de las 24 horas
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-6">
@@ -123,10 +122,7 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Nombre de la Empresa</Label>
-                    <Input id="company" placeholder="Nombre de la empresa" required />
-                  </div>
+                  
                   <div className="space-y-2">
                     <Label htmlFor="contact">Persona de Contacto</Label>
                     <Input id="contact" placeholder="Nombre Completo" required />
