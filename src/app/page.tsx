@@ -82,7 +82,7 @@ export default function Home() {
                 Asesoramiento Financiero Personalizado Desarrollado por IA
                 </h1>
                 <p className="max-w-[600px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Asesoramiento Financiero Personalizado Desarrollado por IA
+                Pequeños ahorros, grandes logros.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/ai-advisor">
