@@ -1,15 +1,13 @@
 import type { Config } from "tailwindcss"
 
-const config = {
-  darkMode: "class",
+const config: Config = {
+  darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -26,12 +24,12 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#6b21a8", // purple-800
-          foreground: "#ffffff",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#171717", // neutral-900
-          foreground: "#ffffff",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -52,6 +50,19 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        red: {
+          50: "#fef2f2",
+          100: "#fee2e2",
+          200: "#fecaca",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#ef4444",
+          600: "#dc2626",
+          700: "#b91c1c",
+          800: "#991b1b",
+          900: "#7f1d1d",
+          950: "#450a0a",
         },
       },
       borderRadius: {
@@ -76,7 +87,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+}
 
 export default config
-
