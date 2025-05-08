@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -131,6 +134,18 @@ const allCases = [
 ]
 
 export default function AllCasesPage() {
+  const [searchTerm, setSearchTerm] = useState("")
+
+  // Filter cases based on search term
+  const filteredCases = allCases.filter(
+    (caseItem) =>
+      caseItem.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      caseItem.patient.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      caseItem.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      caseItem.status.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      caseItem.doctor.toLowerCase().includes(searchTerm.toLowerCase()),
+  )
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar */}
@@ -163,11 +178,18 @@ export default function AllCasesPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>Todos los Casos</CardTitle>
-                <CardDescription>Mostrando {allCases.length} casos en total</CardDescription>
+                <CardDescription>
+                  Mostrando {filteredCases.length} de {allCases.length} casos
+                </CardDescription>
               </div>
               <div className="relative w-64">
                 <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
-                <Input placeholder="Buscar casos..." className="pl-8" />
+                <Input
+                  placeholder="Buscar casos..."
+                  className="pl-8"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
             </div>
           </CardHeader>
@@ -187,42 +209,50 @@ export default function AllCasesPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {allCases.map((caseItem) => (
-                    <tr key={caseItem.id} className="border-b text-sm hover:bg-gray-50">
-                      <td className="px-4 py-4 font-medium">{caseItem.id}</td>
-                      <td className="px-4 py-4">
-                        <div className="flex items-center">
-                          <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-xs font-medium text-red-600">
-                            {caseItem.patient.initials}
+                  {filteredCases.length > 0 ? (
+                    filteredCases.map((caseItem) => (
+                      <tr key={caseItem.id} className="border-b text-sm hover:bg-gray-50">
+                        <td className="px-4 py-4 font-medium">{caseItem.id}</td>
+                        <td className="px-4 py-4">
+                          <div className="flex items-center">
+                            <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-xs font-medium text-red-600">
+                              {caseItem.patient.initials}
+                            </div>
+                            <div>
+                              <p className="font-medium">{caseItem.patient.name}</p>
+                              <p className="text-xs text-gray-500">
+                                {caseItem.patient.age} años, {caseItem.patient.gender}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <p className="font-medium">{caseItem.patient.name}</p>
-                            <p className="text-xs text-gray-500">
-                              {caseItem.patient.age} años, {caseItem.patient.gender}
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4">{caseItem.department}</td>
-                      <td className="px-4 py-4">{caseItem.createdAt}</td>
-                      <td className="px-4 py-4">
-                        <Badge
-                          className={`bg-${caseItem.statusColor}-100 text-${caseItem.statusColor}-700 hover:bg-${caseItem.statusColor}-100`}
-                        >
-                          {caseItem.status}
-                        </Badge>
-                      </td>
-                      <td className="px-4 py-4">{caseItem.doctor}</td>
-                      <td className="px-4 py-4">{caseItem.imageCount}</td>
-                      <td className="px-4 py-4 text-right">
-                        <Link href={`/casos/${caseItem.id}`}>
-                          <Button variant="ghost" size="sm">
-                            <ChevronRight className="h-4 w-4" />
-                          </Button>
-                        </Link>
+                        </td>
+                        <td className="px-4 py-4">{caseItem.department}</td>
+                        <td className="px-4 py-4">{caseItem.createdAt}</td>
+                        <td className="px-4 py-4">
+                          <Badge
+                            className={`bg-${caseItem.statusColor}-100 text-${caseItem.statusColor}-700 hover:bg-${caseItem.statusColor}-100`}
+                          >
+                            {caseItem.status}
+                          </Badge>
+                        </td>
+                        <td className="px-4 py-4">{caseItem.doctor}</td>
+                        <td className="px-4 py-4">{caseItem.imageCount}</td>
+                        <td className="px-4 py-4 text-right">
+                          <Link href={`/casos/${caseItem.id}`}>
+                            <Button variant="ghost" size="sm">
+                              <ChevronRight className="h-4 w-4" />
+                            </Button>
+                          </Link>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan={8} className="py-8 text-center">
+                        No se encontraron casos que coincidan con la búsqueda.
                       </td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>

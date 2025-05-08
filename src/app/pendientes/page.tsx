@@ -1,7 +1,11 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Clock, AlertTriangle } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { ArrowLeft, Clock, AlertTriangle, Search } from "lucide-react"
 import Link from "next/link"
 import { UserNav } from "@/components/user-nav"
 
@@ -70,6 +74,17 @@ const pendingCases = [
 ]
 
 export default function PendingCasesPage() {
+  const [searchTerm, setSearchTerm] = useState("")
+
+  // Filter cases based on search term
+  const filteredCases = pendingCases.filter(
+    (caseItem) =>
+      caseItem.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      caseItem.patient.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      caseItem.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      caseItem.priority.toLowerCase().includes(searchTerm.toLowerCase()),
+  )
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar */}
@@ -92,75 +107,86 @@ export default function PendingCasesPage() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Casos Pendientes de Revisión</h1>
-          <p className="text-gray-500">Casos que requieren tu atención y diagnóstico</p>
+        <div className="mb-8 flex flex-col justify-between space-y-4 md:flex-row md:items-center md:space-y-0">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Casos Pendientes de Revisión</h1>
+            <p className="text-gray-500">Casos que requieren tu atención y diagnóstico</p>
+          </div>
+          <div className="relative w-full md:w-64">
+            <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
+            <Input
+              placeholder="Buscar casos pendientes..."
+              className="pl-8"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="grid gap-6">
-          {pendingCases.map((caseItem) => (
-            <Card key={caseItem.id} className="overflow-hidden">
-              <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row">
-                  {/* Left side - Patient info */}
-                  <div className="flex-1 p-6">
-                    <div className="flex items-start">
-                      <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-lg font-medium text-red-600">
-                        {caseItem.patient.initials}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold">{caseItem.patient.name}</h3>
-                        <p className="text-sm text-gray-500">
-                          {caseItem.patient.age} años, {caseItem.patient.gender}
-                        </p>
-                        <p className="mt-1 text-sm font-medium">{caseItem.department}</p>
-                        <div className="mt-2 flex items-center">
-                          <Clock className="mr-1 h-4 w-4 text-gray-400" />
-                          <span className="text-sm text-gray-500">En espera: {caseItem.waitingTime}</span>
+          {filteredCases.length > 0 ? (
+            filteredCases.map((caseItem) => (
+              <Card key={caseItem.id} className="overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="flex flex-col md:flex-row">
+                    {/* Left side - Patient info */}
+                    <div className="flex-1 p-6">
+                      <div className="flex items-start">
+                        <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-lg font-medium text-red-600">
+                          {caseItem.patient.initials}
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold">{caseItem.patient.name}</h3>
+                          <p className="text-sm text-gray-500">
+                            {caseItem.patient.age} años, {caseItem.patient.gender}
+                          </p>
+                          <p className="mt-1 text-sm font-medium">{caseItem.department}</p>
+                          <div className="mt-2 flex items-center">
+                            <Clock className="mr-1 h-4 w-4 text-gray-400" />
+                            <span className="text-sm text-gray-500">En espera: {caseItem.waitingTime}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Right side - Status and actions */}
-                  <div className="flex flex-col justify-between border-t bg-gray-50 p-6 md:border-l md:border-t-0">
-                    <div>
-                      <div className="mb-4 flex items-center justify-between">
-                        <Badge
-                          className={`bg-${caseItem.priorityColor}-100 text-${caseItem.priorityColor}-700 hover:bg-${caseItem.priorityColor}-100`}
-                        >
-                          Prioridad {caseItem.priority}
-                        </Badge>
-                        <span className="text-sm text-gray-500">ID: {caseItem.id}</span>
+                    {/* Right side - Status and actions */}
+                    <div className="flex flex-col justify-between border-t bg-gray-50 p-6 md:border-l md:border-t-0">
+                      <div>
+                        <div className="mb-4 flex items-center justify-between">
+                          <Badge
+                            className={`bg-${caseItem.priorityColor}-100 text-${caseItem.priorityColor}-700 hover:bg-${caseItem.priorityColor}-100`}
+                          >
+                            Prioridad {caseItem.priority}
+                          </Badge>
+                          <span className="text-sm text-gray-500">ID: {caseItem.id}</span>
+                        </div>
+                        <div className="mb-4">
+                          <p className="text-sm font-medium">Detalles del caso:</p>
+                          <ul className="mt-1 space-y-1 text-sm text-gray-500">
+                            <li>• Fecha de creación: {caseItem.createdAt}</li>
+                            <li>• Imágenes disponibles: {caseItem.imageCount}</li>
+                            <li>• Estado: Pendiente de revisión</li>
+                          </ul>
+                        </div>
                       </div>
-                      <div className="mb-4">
-                        <p className="text-sm font-medium">Detalles del caso:</p>
-                        <ul className="mt-1 space-y-1 text-sm text-gray-500">
-                          <li>• Fecha de creación: {caseItem.createdAt}</li>
-                          <li>• Imágenes disponibles: {caseItem.imageCount}</li>
-                          <li>• Estado: Pendiente de revisión</li>
-                        </ul>
+                      <div className="flex justify-end">
+                        <Link href={`/casos/${caseItem.id}`}>
+                          <Button className="bg-red-600 hover:bg-red-700">Revisar Caso</Button>
+                        </Link>
                       </div>
-                    </div>
-                    <div className="flex justify-end">
-                      <Link href={`/casos/${caseItem.id}`}>
-                        <Button className="bg-red-600 hover:bg-red-700">Revisar Caso</Button>
-                      </Link>
                     </div>
                   </div>
-                </div>
-              </CardContent>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            <Card className="p-8 text-center">
+              <AlertTriangle className="mx-auto h-12 w-12 text-yellow-500" />
+              <h3 className="mt-4 text-lg font-medium">No se encontraron casos</h3>
+              <p className="mt-2 text-gray-500">No hay casos pendientes que coincidan con tu búsqueda.</p>
             </Card>
-          ))}
+          )}
         </div>
-
-        {pendingCases.length === 0 && (
-          <Card className="p-8 text-center">
-            <AlertTriangle className="mx-auto h-12 w-12 text-yellow-500" />
-            <h3 className="mt-4 text-lg font-medium">No hay casos pendientes</h3>
-            <p className="mt-2 text-gray-500">Todos los casos han sido revisados.</p>
-          </Card>
-        )}
       </main>
     </div>
   )
