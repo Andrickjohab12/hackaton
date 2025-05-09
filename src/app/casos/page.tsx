@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { ChevronRight, Search, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { UserNav } from "@/components/user-nav"
+import { ProtectedRoute } from "@/components/protected-route"
 
 // Mock data for all cases
 const allCases = [
@@ -147,118 +148,120 @@ export default function AllCasesPage() {
   )
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navbar */}
-      <header className="border-b border-gray-100 bg-white">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <div className="flex items-center">
-            <Link href="/" className="mr-4">
-              <span className="text-xl font-bold text-red-600">SONAID</span>
-            </Link>
-            <Link href="/" className="flex items-center text-sm text-gray-500 hover:text-gray-900">
-              <ArrowLeft className="mr-1 h-4 w-4" />
-              Volver al Dashboard
-            </Link>
-          </div>
-          <div className="flex items-center gap-4">
-            <UserNav />
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Total de Casos</h1>
-          <p className="text-gray-500">Visualiza y gestiona todos los casos en el sistema</p>
-        </div>
-
-        <Card>
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle>Todos los Casos</CardTitle>
-                <CardDescription>
-                  Mostrando {filteredCases.length} de {allCases.length} casos
-                </CardDescription>
-              </div>
-              <div className="relative w-64">
-                <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
-                <Input
-                  placeholder="Buscar casos..."
-                  className="pl-8"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+    <ProtectedRoute>
+      <div className="min-h-screen bg-white">
+        {/* Navbar */}
+        <header className="border-b border-gray-100 bg-white">
+          <div className="container mx-auto flex h-16 items-center justify-between px-4">
+            <div className="flex items-center">
+              <Link href="/" className="mr-4">
+                <span className="text-xl font-bold text-red-600">SONAID</span>
+              </Link>
+              <Link href="/" className="flex items-center text-sm text-gray-500 hover:text-gray-900">
+                <ArrowLeft className="mr-1 h-4 w-4" />
+                Volver al Dashboard
+              </Link>
             </div>
-          </CardHeader>
-          <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="border-b text-left text-sm font-medium text-gray-500">
-                    <th className="px-4 py-3">ID</th>
-                    <th className="px-4 py-3">Paciente</th>
-                    <th className="px-4 py-3">Departamento</th>
-                    <th className="px-4 py-3">Fecha</th>
-                    <th className="px-4 py-3">Estado</th>
-                    <th className="px-4 py-3">Doctor</th>
-                    <th className="px-4 py-3">Imágenes</th>
-                    <th className="px-4 py-3 text-right">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredCases.length > 0 ? (
-                    filteredCases.map((caseItem) => (
-                      <tr key={caseItem.id} className="border-b text-sm hover:bg-gray-50">
-                        <td className="px-4 py-4 font-medium">{caseItem.id}</td>
-                        <td className="px-4 py-4">
-                          <div className="flex items-center">
-                            <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-xs font-medium text-red-600">
-                              {caseItem.patient.initials}
+            <div className="flex items-center gap-4">
+              <UserNav />
+            </div>
+          </div>
+        </header>
+
+        {/* Main Content */}
+        <main className="container mx-auto px-4 py-8">
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold text-gray-900">Total de Casos</h1>
+            <p className="text-gray-500">Visualiza y gestiona todos los casos en el sistema</p>
+          </div>
+
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle>Todos los Casos</CardTitle>
+                  <CardDescription>
+                    Mostrando {filteredCases.length} de {allCases.length} casos
+                  </CardDescription>
+                </div>
+                <div className="relative w-64">
+                  <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
+                  <Input
+                    placeholder="Buscar casos..."
+                    className="pl-8"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b text-left text-sm font-medium text-gray-500">
+                      <th className="px-4 py-3">ID</th>
+                      <th className="px-4 py-3">Paciente</th>
+                      <th className="px-4 py-3">Departamento</th>
+                      <th className="px-4 py-3">Fecha</th>
+                      <th className="px-4 py-3">Estado</th>
+                      <th className="px-4 py-3">Doctor</th>
+                      <th className="px-4 py-3">Imágenes</th>
+                      <th className="px-4 py-3 text-right">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredCases.length > 0 ? (
+                      filteredCases.map((caseItem) => (
+                        <tr key={caseItem.id} className="border-b text-sm hover:bg-gray-50">
+                          <td className="px-4 py-4 font-medium">{caseItem.id}</td>
+                          <td className="px-4 py-4">
+                            <div className="flex items-center">
+                              <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-xs font-medium text-red-600">
+                                {caseItem.patient.initials}
+                              </div>
+                              <div>
+                                <p className="font-medium">{caseItem.patient.name}</p>
+                                <p className="text-xs text-gray-500">
+                                  {caseItem.patient.age} años, {caseItem.patient.gender}
+                                </p>
+                              </div>
                             </div>
-                            <div>
-                              <p className="font-medium">{caseItem.patient.name}</p>
-                              <p className="text-xs text-gray-500">
-                                {caseItem.patient.age} años, {caseItem.patient.gender}
-                              </p>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-4 py-4">{caseItem.department}</td>
-                        <td className="px-4 py-4">{caseItem.createdAt}</td>
-                        <td className="px-4 py-4">
-                          <Badge
-                            className={`bg-${caseItem.statusColor}-100 text-${caseItem.statusColor}-700 hover:bg-${caseItem.statusColor}-100`}
-                          >
-                            {caseItem.status}
-                          </Badge>
-                        </td>
-                        <td className="px-4 py-4">{caseItem.doctor}</td>
-                        <td className="px-4 py-4">{caseItem.imageCount}</td>
-                        <td className="px-4 py-4 text-right">
-                          <Link href={`/casos/${caseItem.id}`}>
-                            <Button variant="ghost" size="sm">
-                              <ChevronRight className="h-4 w-4" />
-                            </Button>
-                          </Link>
+                          </td>
+                          <td className="px-4 py-4">{caseItem.department}</td>
+                          <td className="px-4 py-4">{caseItem.createdAt}</td>
+                          <td className="px-4 py-4">
+                            <Badge
+                              className={`bg-${caseItem.statusColor}-100 text-${caseItem.statusColor}-700 hover:bg-${caseItem.statusColor}-100`}
+                            >
+                              {caseItem.status}
+                            </Badge>
+                          </td>
+                          <td className="px-4 py-4">{caseItem.doctor}</td>
+                          <td className="px-4 py-4">{caseItem.imageCount}</td>
+                          <td className="px-4 py-4 text-right">
+                            <Link href={`/casos/${caseItem.id}`}>
+                              <Button variant="ghost" size="sm">
+                                <ChevronRight className="h-4 w-4" />
+                              </Button>
+                            </Link>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={8} className="py-8 text-center">
+                          No se encontraron casos que coincidan con la búsqueda.
                         </td>
                       </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan={8} className="py-8 text-center">
-                        No se encontraron casos que coincidan con la búsqueda.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </CardContent>
-        </Card>
-      </main>
-    </div>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+        </main>
+      </div>
+    </ProtectedRoute>
   )
 }
